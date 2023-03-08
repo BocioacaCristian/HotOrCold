@@ -1,5 +1,6 @@
 #HOT OR COLD GAME
 import random
+import unittest
 
 def HotOrCold():
     game_on = True
@@ -45,12 +46,21 @@ def HotOrCold():
                     print("Please enter Y or N")
     print("Thanks for playing!")
 
+class HotorColdTest(unittest.TestCase):
 
+    def test_guess_number(self):
+        #Test if the number is in range of 0 and 1000
+        number = random.randint(0,1000)
+        self.assertGreaterEqual(number,0)
+        self.assertLessEqual(number,1000)
 
+    def test_input_guess(self):
+        #Test if the input is an integer
+        guess = 50
+        self.assertIsInstance(guess, int)
 
-
-
-HotOrCold()
+if __name__ == "__main__":
+    unittest.main()
 
 
 
